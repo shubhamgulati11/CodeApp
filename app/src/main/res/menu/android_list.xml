@@ -2,9 +2,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     >
-
-
-
     <item
         android:id="@+id/action_search"
         android:title="Search"
@@ -13,18 +10,36 @@
         app:showAsAction="ifRoom"
         />
 
-
     <item
-        android:id="@+id/action_about"
+        android:id="@+id/action_home"
         android:orderInCategory="10"
-        android:title="About"
+        android:title="Home"
         app:showAsAction="never" />
 
     <item
-        android:id="@+id/action_exit"
-        android:title="Exit"
+        android:id="@+id/action_profile"
+        android:title="Profile"
         android:orderInCategory="11"
         app:showAsAction="never"
         />
+    <item
+        android:id="@+id/action_referral"
+        android:title="Referral"
+        android:orderInCategory="12"
+        app:showAsAction="never"
+        />
+    <item
+        android:id="@+id/action_about"
+        android:title="About"
+        android:orderInCategory="13"
+        app:showAsAction="never"
+        />
+    <item
+        android:id="@+id/action_contact"
+        android:title="Contact Us"
+        android:orderInCategory="14"
+        app:showAsAction="never"
+        />
+
 
 </menu>
