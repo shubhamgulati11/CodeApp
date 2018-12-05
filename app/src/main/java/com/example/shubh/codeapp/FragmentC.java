@@ -40,7 +40,7 @@ public class FragmentC extends Fragment {
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getContext(), AndroidList.class);
+                Intent i = new Intent(getContext(), ListActivity.class);
                startActivity(i);
             }
         });

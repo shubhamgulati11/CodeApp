@@ -3,6 +3,8 @@ package com.example.shubh.codeapp;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -14,16 +16,24 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class AndroidList extends AppCompatActivity
        // implements NavigationView.OnNavigationItemSelectedListener
         {
-
+            ArrayList<Data> dataArrayList=new ArrayList<>();
+            RecyclerView rv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_android_list);
 //        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 //        setSupportActionBar(toolbar);
+        rv=findViewById(R.id.rv);
+//        dataArrayList.add(new Data("TextView",R.drawable.and1));
+        Adapter adapter=new Adapter(dataArrayList,AndroidList.this);
+        rv.setAdapter(adapter);
+        rv.setLayoutManager(new LinearLayoutManager(AndroidList.this));
 
 
             }

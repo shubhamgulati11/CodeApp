@@ -20,8 +20,13 @@
         </activity>
         <activity
             android:name=".AndroidList"
-            android:label="@string/title_activity_android_list"
-            ></activity>
+            android:label="@string/title_activity_android_list" />
+        <activity android:name=".ListActivity" />
+        <activity
+            android:name=".TextViewActivity"
+            android:parentActivityName=".ListActivity" />
+        <activity android:name=".ButtonActivity"
+            android:parentActivityName=".ListActivity"></activity>
     </application>
 
 </manifest>
