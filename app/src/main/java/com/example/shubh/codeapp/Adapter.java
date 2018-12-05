@@ -53,6 +53,36 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
                     intent.putExtra("button",d);
                     cxt.startActivity(intent);
                 }
+                else if(d.getName()=="New Project"){
+                    Intent intent= new Intent(cxt,NewProjectActivity.class);
+                    intent.putExtra("project",d);
+                    cxt.startActivity(intent);
+                }
+                else if(d.getName()=="Activity LifeCycle"){
+                    Intent intent= new Intent(cxt,LifecycleActivity.class);
+                    intent.putExtra("lifecycle",d);
+                    cxt.startActivity(intent);
+                }
+                else if(d.getName()=="ImageView"){
+                    Intent intent= new Intent(cxt,ImageviewActivity.class);
+                    intent.putExtra("imageview",d);
+                    cxt.startActivity(intent);
+                }
+                else if(d.getName()=="Basic Calculator"){
+                    Intent intent= new Intent(cxt,CalculatorActivity.class);
+                    intent.putExtra("calculator",d);
+                    cxt.startActivity(intent);
+                }
+                else if(d.getName()=="EditText"){
+                    Intent intent= new Intent(cxt,EdittextActivity.class);
+                    intent.putExtra("edittext",d);
+                    cxt.startActivity(intent);
+                }
+                else if(d.getName()=="WebView"){
+                    Intent intent= new Intent(cxt,WebviewActivity.class);
+                    intent.putExtra("webview",d);
+                    cxt.startActivity(intent);
+                }
             }
         });
     }

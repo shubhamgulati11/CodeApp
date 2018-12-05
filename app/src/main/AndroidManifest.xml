@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.shubh.codeapp">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -25,8 +27,28 @@
         <activity
             android:name=".TextViewActivity"
             android:parentActivityName=".ListActivity" />
-        <activity android:name=".ButtonActivity"
-            android:parentActivityName=".ListActivity"></activity>
+        <activity
+            android:name=".ButtonActivity"
+            android:parentActivityName=".ListActivity" />
+        <activity
+            android:name=".NewProjectActivity"
+            android:parentActivityName=".ListActivity" />
+        <activity
+            android:name=".LifecycleActivity"
+            android:parentActivityName=".ListActivity" />
+        <activity
+            android:name=".ImageviewActivity"
+            android:parentActivityName=".ListActivity" />
+        <activity
+            android:name=".SnackbarActivity"
+            android:parentActivityName=".ListActivity" />
+        <activity
+            android:name=".CalculatorActivity"
+            android:parentActivityName=".ListActivity" />
+        <activity
+            android:name=".EdittextActivity"
+            android:parentActivityName=".ListActivity" />
+        <activity android:name=".WebviewActivity"></activity>
     </application>
 
 </manifest>
