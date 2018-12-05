@@ -20,7 +20,8 @@
         app:tabBackground="@drawable/tab_selector"
         app:tabGravity="center"
         android:layout_above="@+id/btn"
-
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="70dp"
         app:tabIndicatorHeight="0dp" />
 
 

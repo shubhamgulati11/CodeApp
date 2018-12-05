@@ -37,13 +37,13 @@ public class FragmentC extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         start = view.findViewById(R.id.btn);
-       // start.setOnClickListener(new View.OnClickListener() {
-       //     @Override
-       //     public void onClick(View v) {
-       //         Intent i = new Intent(getContext(), List.class);
-       //         startActivity(i);
-         //   }
-        //});
+        start.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getContext(), AndroidList.class);
+               startActivity(i);
+            }
+        });
 
     }
 }
