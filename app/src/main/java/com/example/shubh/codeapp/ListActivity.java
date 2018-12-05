@@ -27,7 +27,7 @@ public class ListActivity extends AppCompatActivity {
         dataArrayList.add(new Data("ImageView","A user Interface to display Image files",imgarray[random.nextInt(7)]));
         dataArrayList.add(new Data("SnackBar","Snackbars show a brief message at the bottom of the mobile screen",imgarray[random.nextInt(7)]));
         dataArrayList.add(new Data("Basic Calculator","Building a calculator using the components discussed so far ",imgarray[random.nextInt(7)]));
-        dataArrayList.add(new Data("CardView"," The CardView API is an easy way to display information inside cards",imgarray[random.nextInt(7)]));
+        dataArrayList.add(new Data("CardView","The CardView API is an easy way to display information inside cards",imgarray[random.nextInt(7)]));
         dataArrayList.add(new Data("WebView","WebView is a view that display web pages inside an application",imgarray[random.nextInt(7)]));
 
         //       dataArrayList.add(new Data("TextView","",imgarray[random.nextInt(7)]));
