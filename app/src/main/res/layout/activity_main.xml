@@ -20,15 +20,11 @@
         app:tabBackground="@drawable/tab_selector"
         app:tabGravity="center"
         android:layout_above="@+id/btn"
-
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="70dp"
         app:tabIndicatorHeight="0dp" />
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_margin="25dp"
-        android:id="@+id/btn"
-        android:layout_alignParentBottom="true"
-        android:layout_height="wrap_content" />
+
 
 
 </RelativeLayout>
