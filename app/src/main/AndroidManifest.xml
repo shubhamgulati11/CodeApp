@@ -59,14 +59,17 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
-        <activity android:name=".AboutActivity"
-            android:parentActivityName=".ListActivity"/>
-        <activity android:name=".SignupActivity"
-            android:parentActivityName=".ListActivity"/>
+        <activity
+            android:name=".AboutActivity"
+            android:parentActivityName=".ListActivity" />
+        <activity
+            android:name=".SignupActivity"
+            android:parentActivityName=".ListActivity" />
         <activity
             android:name=".LoginActivity"
-            android:parentActivityName=".SignupActivity"
-            android:label="@string/title_activity_login"></activity>
+            android:label="@string/title_activity_login"
+            android:parentActivityName=".SignupActivity" />
+        <activity android:name=".Login2"></activity>
     </application>
 
 </manifest>
