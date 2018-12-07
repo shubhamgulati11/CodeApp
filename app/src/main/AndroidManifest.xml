@@ -69,7 +69,6 @@
             android:name=".LoginActivity"
             android:label="@string/title_activity_login"
             android:parentActivityName=".SignupActivity" />
-        <activity android:name=".Login2" />
         <activity android:name=".Login3"></activity>
     </application>
 

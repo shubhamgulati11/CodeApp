@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
+    android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,14 +8,32 @@
     android:layout_height="match_parent"
     tools:context=".Login3">
 
-
-    <com.google.android.gms.common.SignInButton
-        android:id="@+id/gSignIn"
+    <EditText
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="11dp"
-        android:layout_marginRight="11dp"
-        android:layout_marginTop="27dp"
-        />
+        android:id="@+id/phone_number"
+        android:inputType="phone"
+        android:layout_margin="5dp"
+        android:hint="Enter Phone number"
+        android:layout_height="wrap_content" />
 
-</RelativeLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:id="@+id/btn"
+        android:text="Get Verification Code"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content" />
+    <EditText
+        android:layout_margin="5dp"
+        android:layout_width="match_parent"
+        android:id="@+id/verif"
+        android:hint="Enter Verification Code"
+        android:inputType="number"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:text="Sign In"
+        android:layout_gravity="center"
+        android:id="@+id/btnSign"
+        android:layout_height="wrap_content" />
+</LinearLayout>

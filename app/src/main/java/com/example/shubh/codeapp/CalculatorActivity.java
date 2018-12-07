@@ -25,7 +25,6 @@ public class CalculatorActivity extends AppCompatActivity {
         ivxml=findViewById(R.id.ivxml);
         num1=findViewById(R.id.num1);
         num2=findViewById(R.id.num2);
-
         add=findViewById(R.id.add);
         sub=findViewById(R.id.sub);
         div=findViewById(R.id.div);

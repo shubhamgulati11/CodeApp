@@ -18,10 +18,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/tvtitle"
+                android:fontFamily="@font/roboto"
+                android:layout_marginTop="2dp"
                 android:layout_marginRight="5dp"
+                android:textStyle="bold"
                 android:layout_marginBottom="5dp"
                 android:layout_marginLeft="5dp"
-                android:textSize="32sp"/>
+                android:textSize="25sp"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -29,14 +32,17 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:layout_marginBottom="5dp"
-                android:textSize="22sp"
+                android:textSize="15sp"
+                android:fontFamily="@font/roboto"
                 android:id="@+id/tvdesc"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Step 1: In XML"
                 android:layout_marginLeft="5dp"
-                android:textSize="32sp"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/roboto"
                 android:layout_marginRight="5dp"
                 android:layout_marginBottom="5dp"
                 />
@@ -52,12 +58,16 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:text="Step 2: In Java"
-                android:textSize="32sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/roboto"
+                android:textSize="25sp"
                 />
             <ImageView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="250dp"
                 android:id="@+id/ivjava"
+                android:layout_marginBottom="5dp"
+                android:src="@drawable/snackjava"
                 />
         </LinearLayout>
     </ScrollView>
