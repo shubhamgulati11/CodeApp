@@ -9,6 +9,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.miguelcatalan.materialsearchview.MaterialSearchView;
+
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -16,12 +18,14 @@ public class ListActivity extends AppCompatActivity {
 
     ArrayList<Data> dataArrayList=new ArrayList<>();
     RecyclerView rv;
+    MaterialSearchView searchView;
     int imgarray[]={R.drawable.and1,R.drawable.and2,R.drawable.and3,R.drawable.and4,R.drawable.and4,R.drawable.and5,R.drawable.and6,R.drawable.and7};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        searchView = findViewById(R.id.search_view);
         getSupportActionBar().setCustomView(R.layout.abs_layout);
         rv=findViewById(R.id.rv);
         Random random=new Random();
@@ -40,14 +44,59 @@ public class ListActivity extends AppCompatActivity {
         Adapter adapter=new Adapter(dataArrayList,ListActivity.this);
         rv.setAdapter(adapter);
         rv.setLayoutManager(new LinearLayoutManager(ListActivity.this));
+        searchView.setOnSearchViewListener(new MaterialSearchView.SearchViewListener() {
+            @Override
+            public void onSearchViewShown() {
 
+            }
+
+            @Override
+            public void onSearchViewClosed() {
+                Adapter adapter=new Adapter(dataArrayList,ListActivity.this);
+                rv.setAdapter(adapter);
+                rv.setLayoutManager(new LinearLayoutManager(ListActivity.this));
+            }
+        });
+
+        searchView.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                if(query!=null && !query.isEmpty())
+                {
+                    ArrayList<Data> found = new ArrayList<>();
+                    for(Data item:dataArrayList)
+                    {
+                        if(item.name==query)
+                        {
+                            found.add(item);
+                        }
+                    }
+
+                    Adapter adapter=new Adapter(found,ListActivity.this);
+                    rv.setAdapter(adapter);
+                    rv.setLayoutManager(new LinearLayoutManager(ListActivity.this));
+                }
+                else{
+
+                    Adapter adapter=new Adapter(dataArrayList,ListActivity.this);
+                    rv.setAdapter(adapter);
+                    rv.setLayoutManager(new LinearLayoutManager(ListActivity.this));
+                }
+
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                //Do some magic
+                return false; }
+        });
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.android_list, menu);
         return true;
-
     }
 
     @Override
@@ -62,7 +111,14 @@ public class ListActivity extends AppCompatActivity {
             startActivity(i);
         }
 
+        else if(id==R.id.searchIt)
+        {
+
+        }
+
 
         return super.onOptionsItemSelected(item);
     }
+
+
 }
