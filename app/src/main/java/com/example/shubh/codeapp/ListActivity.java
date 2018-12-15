@@ -6,8 +6,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.inputmethod.EditorInfo;
+import android.widget.Toast;
 
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
 
@@ -18,14 +21,13 @@ public class ListActivity extends AppCompatActivity {
 
     ArrayList<Data> dataArrayList=new ArrayList<>();
     RecyclerView rv;
-    MaterialSearchView searchView;
     int imgarray[]={R.drawable.and1,R.drawable.and2,R.drawable.and3,R.drawable.and4,R.drawable.and4,R.drawable.and5,R.drawable.and6,R.drawable.and7};
+    Adapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-        searchView = findViewById(R.id.search_view);
         getSupportActionBar().setCustomView(R.layout.abs_layout);
         rv=findViewById(R.id.rv);
         Random random=new Random();
@@ -41,61 +43,17 @@ public class ListActivity extends AppCompatActivity {
         dataArrayList.add(new Data("WebView","WebView is a view that display web pages inside an application",imgarray[random.nextInt(7)]));
 
         //       dataArrayList.add(new Data("TextView","",imgarray[random.nextInt(7)]));
-        Adapter adapter=new Adapter(dataArrayList,ListActivity.this);
+        adapter=new Adapter(dataArrayList,ListActivity.this);
         rv.setAdapter(adapter);
         rv.setLayoutManager(new LinearLayoutManager(ListActivity.this));
-        searchView.setOnSearchViewListener(new MaterialSearchView.SearchViewListener() {
-            @Override
-            public void onSearchViewShown() {
 
-            }
-
-            @Override
-            public void onSearchViewClosed() {
-                Adapter adapter=new Adapter(dataArrayList,ListActivity.this);
-                rv.setAdapter(adapter);
-                rv.setLayoutManager(new LinearLayoutManager(ListActivity.this));
-            }
-        });
-
-        searchView.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                if(query!=null && !query.isEmpty())
-                {
-                    ArrayList<Data> found = new ArrayList<>();
-                    for(Data item:dataArrayList)
-                    {
-                        if(item.name==query)
-                        {
-                            found.add(item);
-                        }
-                    }
-
-                    Adapter adapter=new Adapter(found,ListActivity.this);
-                    rv.setAdapter(adapter);
-                    rv.setLayoutManager(new LinearLayoutManager(ListActivity.this));
-                }
-                else{
-
-                    Adapter adapter=new Adapter(dataArrayList,ListActivity.this);
-                    rv.setAdapter(adapter);
-                    rv.setLayoutManager(new LinearLayoutManager(ListActivity.this));
-                }
-
-                return true;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                //Do some magic
-                return false; }
-        });
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.android_list, menu);
+
+
         return true;
     }
 
@@ -113,12 +71,31 @@ public class ListActivity extends AppCompatActivity {
 
         else if(id==R.id.searchIt)
         {
+            SearchView searchView = (SearchView) item.getActionView();
+            searchView.setImeOptions(EditorInfo.IME_ACTION_DONE);
+            searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                @Override
+                public boolean onQueryTextSubmit(String s) {
+                    return false;
+                }
 
+                @Override
+                public boolean onQueryTextChange(String s) {
+                  adapter.getFilter().filter(s);
+                  return false;
+                }
+            });
         }
 
 
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
 
+        Toast.makeText(this, "Press Back again to Exit", Toast.LENGTH_SHORT).show();
+
+    }
 }

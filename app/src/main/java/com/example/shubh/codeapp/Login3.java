@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -33,7 +34,8 @@ import java.util.concurrent.TimeUnit;
 public class Login3 extends AppCompatActivity {
 
     EditText phone_number,verif;
-    Button btn,btnSign;
+    Button btnSign;
+    TextView textView;
     FirebaseAuth mAuth;
     String codeSent;
     FirebaseAuth.AuthStateListener mAuthListener;
@@ -50,7 +52,23 @@ public class Login3 extends AppCompatActivity {
         setContentView(R.layout.activity_login3);
         phone_number=findViewById(R.id.phone_number);
         verif=findViewById(R.id.verif);
-        btn=findViewById(R.id.btn);
+        textView=findViewById(R.id.gvCode);
+
+        Boolean isFirstRun = getSharedPreferences("PREFERENCE", MODE_PRIVATE)
+                .getBoolean("isFirstRun", true);
+
+        if (isFirstRun) {
+            //show start activity
+
+            Intent i = new Intent(getBaseContext(),MainActivity.class);
+            startActivity(i);
+
+            getSharedPreferences("PREFERENCE", MODE_PRIVATE).edit()
+                    .putBoolean("isFirstRun", false).commit();
+            }
+
+
+
 
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
@@ -66,7 +84,7 @@ public class Login3 extends AppCompatActivity {
 
         btnSign=findViewById(R.id.btnSign);
         mAuth = FirebaseAuth.getInstance();
-        phone_number.setOnClickListener(new View.OnClickListener() {
+        textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 sendVerificationCode();
@@ -82,8 +100,14 @@ public class Login3 extends AppCompatActivity {
     }
     private void verifySignInCode(){
         String code = verif.getText().toString();
-        PhoneAuthCredential credential = PhoneAuthProvider.getCredential(codeSent, code);
-        signInWithPhoneAuthCredential(credential);
+        if(code.length()==0)
+        {
+            Toast.makeText(this, "Please enter the code", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            PhoneAuthCredential credential = PhoneAuthProvider.getCredential(codeSent, code);
+            signInWithPhoneAuthCredential(credential);
+        }
     }
     private void signInWithPhoneAuthCredential(PhoneAuthCredential credential) {
         mAuth.signInWithCredential(credential)

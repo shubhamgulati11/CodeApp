@@ -7,19 +7,24 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
+public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> implements Filterable {
     ArrayList<Data> arrayList;
+    ArrayList<Data> arrayListFull;
     Context cxt;
 
     public Adapter(ArrayList<Data> arrayList, Context cxt) {
         this.arrayList = arrayList;
+        arrayListFull = new ArrayList<>(arrayList);
         this.cxt = cxt;
     }
 
@@ -91,6 +96,41 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     public int getItemCount() {
         return arrayList.size();
     }
+
+    @Override
+    public Filter getFilter() {
+        return listFilter;
+    }
+
+   private Filter listFilter = new Filter() {
+       @Override
+       protected FilterResults performFiltering(CharSequence constraint) {
+        ArrayList<Data> found = new ArrayList<>();
+
+        if(constraint == null || constraint.length() == 0) {
+            found.addAll(arrayListFull);
+        } else {
+            String filterPattern = constraint.toString().toLowerCase().trim();
+
+            for (Data item:arrayListFull)
+            {
+             if(item.name.toLowerCase().trim().contains(filterPattern))
+                 found.add(item);
+            }
+        }
+        FilterResults results = new FilterResults();
+        results.values = found;
+        return results;
+       }
+
+
+       @Override
+       protected void publishResults(CharSequence constraint, FilterResults results) {
+        arrayList.clear();
+        arrayList.addAll((ArrayList) results.values);
+        notifyDataSetChanged();
+       }
+   };
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView androidImage;
