@@ -1,5 +1,6 @@
 package com.example.shubh.codeapp;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -39,6 +40,7 @@ public class Login3 extends AppCompatActivity {
     FirebaseAuth mAuth;
     String codeSent;
     FirebaseAuth.AuthStateListener mAuthListener;
+    public static Login3 fa;
 
     @Override
     protected void onStart() {
@@ -53,7 +55,7 @@ public class Login3 extends AppCompatActivity {
         phone_number=findViewById(R.id.phone_number);
         verif=findViewById(R.id.verif);
         textView=findViewById(R.id.gvCode);
-
+        fa = this;
         Boolean isFirstRun = getSharedPreferences("PREFERENCE", MODE_PRIVATE)
                 .getBoolean("isFirstRun", true);
 
@@ -77,6 +79,7 @@ public class Login3 extends AppCompatActivity {
                 {
                     Intent i = new Intent(getBaseContext(),ListActivity.class);
                     startActivity(i);
+
                 }
             }
         };

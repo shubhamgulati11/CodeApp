@@ -9,10 +9,12 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.inputmethod.EditorInfo;
+import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.miguelcatalan.materialsearchview.MaterialSearchView;
+
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -21,12 +23,15 @@ public class ListActivity extends AppCompatActivity {
 
     ArrayList<Data> dataArrayList=new ArrayList<>();
     RecyclerView rv;
+    ImageView searchContent;
     int imgarray[]={R.drawable.and1,R.drawable.and2,R.drawable.and3,R.drawable.and4,R.drawable.and4,R.drawable.and5,R.drawable.and6,R.drawable.and7};
     Adapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
+        Login3.fa.finish();
+        searchContent = findViewById(R.id.searchItem);
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setCustomView(R.layout.abs_layout);
         rv=findViewById(R.id.rv);
@@ -47,55 +52,32 @@ public class ListActivity extends AppCompatActivity {
         rv.setAdapter(adapter);
         rv.setLayoutManager(new LinearLayoutManager(ListActivity.this));
 
-    }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.android_list, menu);
-
-
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id==R.id.action_about){
-            Intent i = new Intent(ListActivity.this,AboutActivity.class);
-            startActivity(i);
-        }
-        else if(id==R.id.action_profile){
-            Intent i = new Intent(ListActivity.this,SignupActivity.class);
-            startActivity(i);
-        }
-
-        else if(id==R.id.searchIt)
-        {
-            SearchView searchView = (SearchView) item.getActionView();
-            searchView.setImeOptions(EditorInfo.IME_ACTION_DONE);
-            searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-                @Override
-                public boolean onQueryTextSubmit(String s) {
-                    return false;
-                }
-
-                @Override
-                public boolean onQueryTextChange(String s) {
-                  adapter.getFilter().filter(s);
-                  return false;
-                }
-            });
-        }
-
-
-        return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-
-        Toast.makeText(this, "Press Back again to Exit", Toast.LENGTH_SHORT).show();
+    //    searchContent.setOnClickListener(new View.OnClickListener() {
+     //       @Override
+     //       public void onClick(View v) {
+     //           SearchView searchView = findViewById(R.id.mySearch);
+     //           searchView.setImeOptions(EditorInfo.IME_ACTION_DONE);
+     //           searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+     //               @Override
+     //               public boolean onQueryTextSubmit(String s) {
+       //                 return false;
+         //           }
+//
+  //                  @Override
+    //                public boolean onQueryTextChange(String s) {
+      //                  adapter.getFilter().filter(s);
+        //                return false;
+          //          }
+            //    });
+            //}
+       // });
 
     }
-}
+
+
+    }
+
+
+
+

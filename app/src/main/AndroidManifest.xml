@@ -66,6 +66,7 @@
         <activity
             android:name=".LoginActivity"
             android:label="@string/title_activity_login"
+            android:launchMode="singleTop"
             android:parentActivityName=".SignupActivity" />
         <activity android:name=".Login3"
             android:theme="@style/MyTheme2"
