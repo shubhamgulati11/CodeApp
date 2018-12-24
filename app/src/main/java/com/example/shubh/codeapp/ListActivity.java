@@ -6,8 +6,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.inputmethod.EditorInfo;
+import android.widget.ImageView;
+import android.widget.Toast;
+
+
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -16,11 +23,15 @@ public class ListActivity extends AppCompatActivity {
 
     ArrayList<Data> dataArrayList=new ArrayList<>();
     RecyclerView rv;
+    ImageView searchContent;
     int imgarray[]={R.drawable.and1,R.drawable.and2,R.drawable.and3,R.drawable.and4,R.drawable.and4,R.drawable.and5,R.drawable.and6,R.drawable.and7};
+    Adapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
+        Login3.fa.finish();
+        searchContent = findViewById(R.id.searchItem);
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setCustomView(R.layout.abs_layout);
         rv=findViewById(R.id.rv);
@@ -37,32 +48,36 @@ public class ListActivity extends AppCompatActivity {
         dataArrayList.add(new Data("WebView","WebView is a view that display web pages inside an application",imgarray[random.nextInt(7)]));
 
         //       dataArrayList.add(new Data("TextView","",imgarray[random.nextInt(7)]));
-        Adapter adapter=new Adapter(dataArrayList,ListActivity.this);
+        adapter=new Adapter(dataArrayList,ListActivity.this);
         rv.setAdapter(adapter);
         rv.setLayoutManager(new LinearLayoutManager(ListActivity.this));
 
+
+    //    searchContent.setOnClickListener(new View.OnClickListener() {
+     //       @Override
+     //       public void onClick(View v) {
+     //           SearchView searchView = findViewById(R.id.mySearch);
+     //           searchView.setImeOptions(EditorInfo.IME_ACTION_DONE);
+     //           searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+     //               @Override
+     //               public boolean onQueryTextSubmit(String s) {
+       //                 return false;
+         //           }
+//
+  //                  @Override
+    //                public boolean onQueryTextChange(String s) {
+      //                  adapter.getFilter().filter(s);
+        //                return false;
+          //          }
+            //    });
+            //}
+       // });
+
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.android_list, menu);
-        return true;
 
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id==R.id.action_about){
-            Intent i = new Intent(ListActivity.this,AboutActivity.class);
-            startActivity(i);
-        }
-        else if(id==R.id.action_profile){
-            Intent i = new Intent(ListActivity.this,SignupActivity.class);
-            startActivity(i);
-        }
 
 
-        return super.onOptionsItemSelected(item);
-    }
-}
+

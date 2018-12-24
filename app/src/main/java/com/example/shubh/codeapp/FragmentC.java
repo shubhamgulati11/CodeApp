@@ -24,8 +24,6 @@ public class FragmentC extends Fragment {
     public FragmentC() {
         // Required empty public constructor
     }
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -42,8 +40,10 @@ public class FragmentC extends Fragment {
             public void onClick(View v) {
                 Intent i = new Intent(getContext(), Login3.class);
                startActivity(i);
+
             }
         });
 
     }
+
 }
