@@ -18,15 +18,13 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
-            android:theme="@style/MyTheme">
-
-        </activity>
+            android:theme="@style/MyTheme"></activity>
         <activity
             android:name=".AndroidList"
             android:label="@string/title_activity_android_list" />
-        <activity android:name=".ListActivity"
-            android:launchMode="singleTop"
-            />
+        <activity
+            android:name=".ListActivity"
+            android:launchMode="singleTop" />
         <activity
             android:name=".TextViewActivity"
             android:parentActivityName=".ListActivity" />
@@ -68,10 +66,9 @@
             android:label="@string/title_activity_login"
             android:launchMode="singleTop"
             android:parentActivityName=".SignupActivity" />
-        <activity android:name=".Login3"
-            android:theme="@style/MyTheme2"
-            >
-
+        <activity
+            android:name=".Login3"
+            android:theme="@style/MyTheme2">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -79,7 +76,5 @@
             </intent-filter>
         </activity>
     </application>
-
-
 
 </manifest>
