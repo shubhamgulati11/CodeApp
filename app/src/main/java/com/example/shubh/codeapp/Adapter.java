@@ -44,7 +44,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> implements
         final Data d=arrayList.get(i);
         viewHolder.topicTitle.setText(d.getName());
         viewHolder.topicDesc.setText(d.getDesc());
-        Picasso.get().load(d.getImg()).into(viewHolder.androidImage);
+        viewHolder.androidInitial.setText(d.getInitial());
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -141,11 +141,10 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> implements
    };
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        ImageView androidImage;
-        TextView topicTitle,topicDesc;
+        TextView topicTitle,topicDesc,androidInitial;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            androidImage=itemView.findViewById(R.id.androidImage);
+            androidInitial=itemView.findViewById(R.id.itView);
             topicTitle=itemView.findViewById(R.id.topicTitle);
             topicDesc=itemView.findViewById(R.id.topicDesc);
         }

@@ -35,16 +35,16 @@ public class ListActivity extends AppCompatActivity {
         getSupportActionBar().setCustomView(R.layout.abs_layout);
         rv=findViewById(R.id.rv);
         Random random=new Random();
-        dataArrayList.add(new Data("New Project","Creating a new android project",imgarray[random.nextInt(7)]));
-        dataArrayList.add(new Data("Activity LifeCycle","Understanding the lifecycle of an android application",imgarray[random.nextInt(7)]));
-        dataArrayList.add(new Data("TextView","A user interface element that displays text to the user.",imgarray[random.nextInt(7)]));
-        dataArrayList.add(new Data("Button","A user interface element the user can tap or click to perform an action.",imgarray[random.nextInt(7)]));
-        dataArrayList.add(new Data("EditText","A user interface element for entering and modifying text",imgarray[random.nextInt(7)]));
-        dataArrayList.add(new Data("ImageView","A user Interface to display Image files",imgarray[random.nextInt(7)]));
-        dataArrayList.add(new Data("SnackBar","Snackbars show a brief message at the bottom of the mobile screen",imgarray[random.nextInt(7)]));
-        dataArrayList.add(new Data("Basic Calculator","Building a calculator using the components discussed so far ",imgarray[random.nextInt(7)]));
-        dataArrayList.add(new Data("CardView","The CardView API is an easy way to display information inside cards",imgarray[random.nextInt(7)]));
-        dataArrayList.add(new Data("WebView","WebView is a view that display web pages inside an application",imgarray[random.nextInt(7)]));
+        dataArrayList.add(new Data("New Project","Creating a new android project","N"));
+        dataArrayList.add(new Data("Activity LifeCycle","Understanding the lifecycle of an android application","A"));
+        dataArrayList.add(new Data("TextView","A user interface element that displays text to the user.","T"));
+        dataArrayList.add(new Data("Button","A user interface element the user can tap or click to perform an action.","B"));
+        dataArrayList.add(new Data("EditText","A user interface element for entering and modifying text","E"));
+        dataArrayList.add(new Data("ImageView","A user Interface to display Image files","I"));
+        dataArrayList.add(new Data("SnackBar","Snackbars show a brief message at the bottom of the mobile screen","S"));
+        dataArrayList.add(new Data("Basic Calculator","Building a calculator using the components discussed so far ","B"));
+        dataArrayList.add(new Data("CardView","The CardView API is an easy way to display information inside cards","C"));
+        dataArrayList.add(new Data("WebView","WebView is a view that display web pages inside an application","W"));
 
         //       dataArrayList.add(new Data("TextView","",imgarray[random.nextInt(7)]));
         adapter=new Adapter(dataArrayList,ListActivity.this);
