@@ -6,22 +6,22 @@ import android.os.Parcelable;
 public class Data implements Parcelable {
     String name;
     String desc;
-    int img;
+    String initial;
     public boolean progress = false;
 
     public Data() {
     }
 
-    public Data(String name, String desc, int img) {
+    public Data(String name, String desc, String initial) {
         this.name = name;
         this.desc = desc;
-        this.img = img;
+        this.initial = initial;
     }
 
     protected Data(Parcel in) {
         name = in.readString();
         desc = in.readString();
-        img = in.readInt();
+        initial = in.readString();
     }
 
     public static final Creator<Data> CREATOR = new Creator<Data>() {
@@ -52,12 +52,12 @@ public class Data implements Parcelable {
         this.desc = desc;
     }
 
-    public int getImg() {
-        return img;
+    public String getInitial() {
+        return initial;
     }
 
-    public void setImg(int img) {
-        this.img = img;
+    public void setInitial(String initial) {
+        this.initial = initial;
     }
 
     @Override
@@ -69,6 +69,6 @@ public class Data implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(name);
         dest.writeString(desc);
-        dest.writeInt(img);
+        dest.writeString(initial);
     }
 }
