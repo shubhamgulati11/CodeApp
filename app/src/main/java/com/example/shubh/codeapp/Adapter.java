@@ -53,13 +53,13 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> implements
             public void onClick(View v) {
                 if(d.getName()=="TextView"){
                    Intent intent= new Intent(cxt,TextViewActivity.class);
-                   intent.putExtra("TextView",d);
+                   intent.putExtra("textview",d);
                    d.progress = true;
                    cxt.startActivity(intent);
                 }
                 else if(d.getName()=="Button"){
                     Intent intent= new Intent(cxt,ButtonActivity.class);
-                    intent.putExtra("Button",d);
+                    intent.putExtra("button",d);
                     d.progress = true;
                     cxt.startActivity(intent);
                 }
@@ -71,29 +71,29 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> implements
                 }
                 else if(d.getName()=="Activity LifeCycle"){
                     Intent intent= new Intent(cxt,LifecycleActivity.class);
-                    intent.putExtra("Lifecycle",d);
+                    intent.putExtra("lifecycle",d);
                     d.progress = true;
                     cxt.startActivity(intent);
                 }
                 else if(d.getName()=="ImageView"){
                     Intent intent= new Intent(cxt,ImageviewActivity.class);
-                    intent.putExtra("ImageView",d);
+                    intent.putExtra("imageview",d);
                     d.progress = true;
                     cxt.startActivity(intent);
                 }
                 else if(d.getName()=="Basic Calculator"){
                     Intent intent= new Intent(cxt,CalculatorActivity.class);
-                    intent.putExtra("Calculator",d);
+                    intent.putExtra("calculator",d);
                     d.progress = true;
                     cxt.startActivity(intent);
                 }
                 else if(d.getName()=="EditText"){
                     Intent intent= new Intent(cxt,EdittextActivity.class);
-                    intent.putExtra("EditText",d);
+                    intent.putExtra("edittext",d);
                     d.progress = true;
                     cxt.startActivity(intent);
                 }
-                else if(d.getName()=="WebView"){
+                else if(d.getName()=="webview"){
                     Intent intent= new Intent(cxt,WebviewActivity.class);
                     intent.putExtra("WebView",d);
                     d.progress = true;

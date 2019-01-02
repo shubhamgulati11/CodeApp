@@ -89,8 +89,8 @@ public class Login3 extends AppCompatActivity implements PaytmPaymentTransaction
                 if(firebaseAuth.getCurrentUser() != null)
                 {
                     generateCheckSum();
-//                    Intent i = new Intent(getBaseContext(),ListActivity.class);
-//                    startActivity(i);
+                    Intent i = new Intent(getBaseContext(),ListActivity.class);
+                    startActivity(i);
 
                 }
             }
