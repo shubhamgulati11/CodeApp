@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,7 +33,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> implements
     @Override
     public Adapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         LayoutInflater li =LayoutInflater.from(cxt);
-        View view=li.inflate(R.layout.itemrow2,viewGroup,false);
+        View view=li.inflate(R.layout.itemrow,viewGroup,false);
         ViewHolder viewHolder=new ViewHolder(view);
         return viewHolder;
 
@@ -42,9 +43,11 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> implements
     public void onBindViewHolder(@NonNull Adapter.ViewHolder viewHolder, int i) {
 
         final Data d=arrayList.get(i);
+//        Log.e("TAg",""+d.getInitial());
         viewHolder.topicTitle.setText(d.getName());
         viewHolder.topicDesc.setText(d.getDesc());
         viewHolder.androidInitial.setText(d.getInitial());
+//        viewHolder.androidInitial.setText(d.getName());
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

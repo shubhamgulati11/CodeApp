@@ -102,6 +102,7 @@ public class Login3 extends AppCompatActivity implements PaytmPaymentTransaction
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.e("TAG","Verif Code func Called");
                 sendVerificationCode();
             }
         });
@@ -230,7 +231,7 @@ public class Login3 extends AppCompatActivity implements PaytmPaymentTransaction
     private void sendVerificationCode(){
 
         String phone = phone_number.getText().toString();
-
+        Log.e("TAG","Inside Send Verif Code");
         if(phone.isEmpty()){
             phone_number.setError("Phone number is required");
             phone_number.requestFocus();
